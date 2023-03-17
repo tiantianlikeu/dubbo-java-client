@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: dubbo-consumer
+
+dubbo:
+  config-center:
+    timeout: 60000
+  application:
+    name: dubbo-consumer
+    id: dubbo-consumer
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    timeout: 60000
+    group: dubbo
+  consumer:
+    retries: 3
+    timeout: 600000
+    check: false
+    group: dubbo
+    threadpool: cached #线程机制为缓存线程机制。默认超过一分钟不用该线程将自动销毁，使用时重新创建
